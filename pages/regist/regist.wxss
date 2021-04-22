@@ -1,0 +1,100 @@
+page{
+  background-color:	#F5F5F5;
+}
+.picker{
+  border:	#F5F5F5 1rpx solid;
+  padding:20rpx;
+  /* margin:20rpx; */
+  background-color: white;
+  width:500rpx;
+  border-radius:20rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 35rpx;
+  text-align: right;
+}
+.input{
+  border:	#F5F5F5 1rpx solid;
+  background-color: white;
+  width:500rpx;
+  text-align: left;
+  border-radius:20rpx;
+  padding:20rpx;
+}
+.ph{
+  text-align: left;
+}
+.section image{
+  width:65rpx;
+  height: 65rpx;
+  margin-right: 10rpx;
+  
+}
+.section .imageBox
+{
+  display:flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.section
+{
+  display: flex;
+  /* align-items: center; */
+  margin:20rpx 0 0 50rpx;
+}
+.picture{
+  /* margin-top: 10rpx; */
+  margin:20rpx 70rpx 0 50rpx;
+  border:	#F5F5F5 1rpx solid;
+  background-color: white;
+  border-radius:20rpx;
+  font-size: 35rpx;
+  padding:30rpx
+
+}
+.picture .title{
+  padding-bottom: 20rpx;
+}
+.picture image{
+  width:150rpx;
+  height: 150rpx;
+  
+}
+.upLoad{
+  display: flex;
+  
+}
+.uplaodImgItem{
+  position: relative;
+  margin-right: 16rpx;
+}
+.camera{
+  height: 150rpx;
+  width: 150rpx;
+  background-color: #F0F8FF;
+  /* border:red 1rpx solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.camera image{
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.deleteImg {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 0px 4rpx 0px 200rpx;
+  top: 0;
+  right: 0;
+  text-align: right;
+  line-height: 20rpx;
+}
+
+.icon-chahao {
+  color: #ffffff;
+  font-size: 26rpx;
+}

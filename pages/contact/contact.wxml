@@ -1,0 +1,4 @@
+<view class="container" bindtap="callFangdong">
+  房东
+</view>
+<view class="container" bindtap="callBaoan">保安</view>

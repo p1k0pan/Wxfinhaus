@@ -1,0 +1,10 @@
+/* pages/contact/contact.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.container{
+  background-color: white;
+  margin-top: 30rpx;
+  height: 70rpx;
+   vertical-align: center;
+}

@@ -1,0 +1,51 @@
+<view class = 'headImage'>
+  <image src="cloud://apartment-management-3b24d52adb0.6170-apartment-management-3b24d52adb0-1304865057/1.jpg"></image>
+</view>
+
+<view class="headBox">
+  <image class="logo" src="/img/brandLogo.png" mode="widthFix"></image>
+  <text style="font-size: large;">朋 来 公 寓</text>
+</view>
+
+<view class="line"></view>
+
+<view class="mainBox">
+  <!-- logo and list...... -->
+  <view class="box" >
+    <image src="/img/bill.png" bindtap="jumpBill"></image>
+    <text>账 单</text>
+  </view>
+  <view class="box" >
+    <image src="/img/fix.png" bindtap="jumpFix"></image>
+    <text>维 修</text>
+  </view>
+  <view  class="box" >
+    <image src="/img/regist.png" bindtap="jumpRegist"></image>
+    <text>入 住</text>
+  </view>
+  <view  class="box" >
+    <image src="/img/leave.png" bindtap="jumpLeaving"></image>
+    <text>退 房</text>
+  </view>
+</view>
+
+<!-- some gap -->
+<view class="infoBox">
+  <image class="logo" src="/img/info.png" mode="widthFix"></image>
+  <text style="font-size: large;">消 息</text>
+</view>
+<!-- <view class="line"></view> -->
+<view class="contentBox">
+  <view class="mssg">
+    <view class="num">1.</view>
+    <view class="content">和content盒子的高度和浏览器高度相同，且不能出现纵向滚动条</view>
+  </view> 
+  <view class="mssg">
+    <view class="num">2.</view>
+    <view class="content">绿色盒子高度固定，比如：50px</view>
+  </view> 
+  <view class="mssg">
+    <view class="num">3.</view>
+    <view class="content">紫色盒子填充剩余的高度 </view>
+  </view> 
+</view>

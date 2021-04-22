@@ -1,0 +1,80 @@
+.headImage{
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 300rpx;
+
+}
+.headImage image{
+  width: 100%;
+  height: 100%;
+}
+page{
+  background-color: 	#F5F5F5;
+}
+.headBox{
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.logo{
+  width: 50rpx;
+  height: 50rpx;
+  padding:10rpx 20rpx 10rpx 10rpx;
+  /* border: 1px solid red; */
+}
+.line{
+  width: 730rpx;
+  height: 0rpx;
+  border-top: solid #e2e2e2 1rpx;
+  margin:0rpx 10rpx 0rpx 10rpx;
+  position: absolute;
+  left:0rpx;
+
+}
+.mainBox{
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.mainBox .box{
+  /* border:1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200rpx;
+  height: 200rpx;
+  justify-content: center;
+}
+
+.mainBox .box image{
+  width:80rpx;
+  height: 80rpx;
+}
+
+.infoBox{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.contentBox{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  bottom: 30rpx;
+  left: 0rpx;
+  top:732rpx;
+  padding:10rpx 5rpx 5rpx 15rpx;
+  /* border:red 1rpx solid; */
+}
+.contentBox view{
+  text-align: left;
+}
+.contentBox .mssg{
+  display: flex;
+}
+.contentBox .mssg .content{
+  padding-left: 10rpx;
+}

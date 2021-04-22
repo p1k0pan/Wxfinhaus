@@ -1,0 +1,40 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/contact/contact",
+    "pages/bill/bill",
+    "pages/fix/fix",
+    "pages/regist/regist",
+    "pages/leave/leave",
+    "pages/billForm/billForm",
+    "pages/login/login",
+    "pages/fixhistory/fixhistory"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "公寓",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首 页",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/selhome.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联 系 人",
+        "iconPath": "/img/contact.png",
+        "selectedIconPath": "/img/selcontact.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

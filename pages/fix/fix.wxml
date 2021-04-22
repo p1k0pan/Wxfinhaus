@@ -1,0 +1,81 @@
+<view class="swiperHeader">
+  <text class="{{currentTab==0?'active':''}}" bindtap="clickTab" data-current="0">提交维修</text>
+  <text class="{{currentTab==1?'active':''}}" bindtap="clickTab" data-current="1">维修记录</text>
+</view>
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper-item> <!--提交维修块-->
+    <view class="fixRequest">
+      <view class="section">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{item}}">
+          <view class="picker">
+            <view class="uptitle">
+              <view>维修物品</view>
+              <view class="bi">(必选)</view>
+            </view>
+            <view class="array">{{item[index]}}</view>
+          </view>
+        </picker>
+
+        <view class ="section2">
+          <view class="dis">
+            <view class="uptitle">
+              <view>具体问题描述</view>
+              <view class="bi">(必填)</view>
+            </view>
+            <textarea placeholder="请描述需要维修物品的问题" placeholder-class="pc" bindblur="bindTextAreaBlur" value="{{desc}}"></textarea>
+          </view>
+        </view>
+      </view>
+
+      <view class="picture">
+        <view class="uptitle">
+          <view class="title">上传照片</view>
+          <view class="bi">(必选)</view>
+        </view>
+        <view class="upLoad">
+          <view class="uplaodImgItem"  wx:for="{{pic}}" wx:key="index" wx:for-item="picItem">
+            <image src="{{picItem}}" bindtap="previewIMG" data-src="{{picItem}}"></image>
+            <view class="deleteImg" bindtap="bindDeleteImg" data-index="{{index}}">
+              <text class="iconfont icon-chahao">×</text>
+            </view>
+          </view>
+          <view class="camera" bindtap="bindUpload" wx:if="{{picCount<3}}">
+            <image src="/img/uploadImg.png"></image>
+          </view>
+          <!-- <view class="uploadImg" bindtap="bindUpload"><text class="iconfont icon-xiangji"></text></view> -->
+        </view>
+      </view>
+      <button type="primary" bindtap="upLoadConfirm">提 交</button>
+    </view>
+  </swiper-item>
+  <swiper-item > <!--历史纪录块-->
+    <scroll-view  scroll-y="true" class="history" >
+      <!-- 有无维修记录显示 -->
+      <view wx:for="{{card}}" wx:for-index="idx">
+        <view class="out" bindtap="jumpFixHistory" data-idx="{{idx}}">
+            <view class="left">
+              <image src="/img/finish.png"></image>
+              <view>{{item.status}}</view>
+            </view>
+            <view class="karte">
+              <view class="discript mainD">
+                <image src="/img/time.png"></image>
+                <view class="txt">{{item.date}}</view>
+              </view>
+              <view class="discript">
+                <image src="/img/room.png"></image>
+                <view class="txt">{{item.room}}</view>
+            </view>
+              <view class="discript">
+                <image src="/img/fixThing.png"></image>
+                <view class="txt">{{item.item}}</view>
+              </view>
+            </view>  
+        </view>
+      </view>
+      <view style="color:	#C0C0C0;text-align:center;margin:20rpx">--您尚未有更多维修记录--</view> 
+    </scroll-view>
+  </swiper-item>
+
+
+</swiper>
