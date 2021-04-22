@@ -58,6 +58,12 @@
     </view>
   </picker>
 </view>
+<view class="section">
+  <view class="imageBox">
+    <image src="/img/deposit.png"></image>
+  </view>
+  <input class="input" type="text" placeholder="请询问房东押金数额/元" placeholder-class="ph" bindblur="changeName" value="{{deposit}}"></input>
+</view>
 <view class="picture">
   <view class="title">上传身份证<text style="color:#D3D3D3;font-size:25rpx">（需上传身份证正反面）</text></view>
   <view class="upLoad">

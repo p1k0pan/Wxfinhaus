@@ -7,10 +7,10 @@
     "pages/bill/bill",
     "pages/fix/fix",
     "pages/regist/regist",
-    "pages/leave/leave",
     "pages/billForm/billForm",
     "pages/login/login",
-    "pages/fixhistory/fixhistory"
+    "pages/fixhistory/fixhistory",
+    "pages/info/info"
   ],
   "window": {
     "backgroundTextStyle": "light",

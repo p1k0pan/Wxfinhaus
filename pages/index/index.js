@@ -74,10 +74,10 @@ Page({
       })
     }
   },
-  jumpLeaving:function(){
+  jumpInfo:function(){
     if(app.globalData.status!="none"){
       wx.navigateTo({
-        url: '/pages/leave/leave',
+        url: '/pages/info/info',
       })
     }
     else {

@@ -1,11 +1,12 @@
-// pages/leave/leave.js
+// pages/info/info.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    room:403,
+    name:"djgjrg"
   },
 
   /**

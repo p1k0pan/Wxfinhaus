@@ -1,0 +1,53 @@
+<view class="welcome" style="font-style:italic;text-align:center;padding-top:20rpx;color:	#778899 ">欢迎入住朋来公寓</view>
+
+<view style="background-color:white">
+  <view class="section">
+    <view class="divLine"></view>     <!-- 分割线 -->
+    <view class="content">
+      <text class="first">房号</text>
+      <text class="second">{{room}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+
+  <view class="section">
+    <view class="content">
+      <text class="first">姓名</text>
+      <text class="second">{{name}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+
+  <view class="section">
+    <view class="content">
+      <text class="first">入住时间</text>
+      <text class="second">{{registTime}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+  
+  <view class="section">
+    <view class="content">
+      <text class="first">押金</text>
+      <text class="second">{{deposit}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+  
+  <view class="section">
+    <view class="content">
+      <text class="first">入住用水数</text>
+      <text class="second">{{water}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+  
+  <view class="section">
+    <view class="content">
+      <text class="first">入住用电数</text>
+      <text class="second">{{elect}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+  
+</view>

@@ -18,7 +18,8 @@ Page({
     region:"",
     name:"",
     phone:"",
-    id:""
+    id:"",
+    deposit:null //以后根据数额多少提交直接付款
   },
   
   changeName:function(e){

@@ -24,8 +24,8 @@
     <text>入 住</text>
   </view>
   <view  class="box" >
-    <image src="/img/leave.png" bindtap="jumpLeaving"></image>
-    <text>退 房</text>
+    <image src="/img/leave.png" bindtap="jumpInfo"></image>
+    <text>住户信息</text>
   </view>
 </view>
 
