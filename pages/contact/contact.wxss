@@ -6,5 +6,7 @@ page{
   background-color: white;
   margin-top: 30rpx;
   height: 70rpx;
-   vertical-align: center;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
 }

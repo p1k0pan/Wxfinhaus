@@ -1,4 +1,5 @@
 {
+    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -56,6 +57,18 @@
                 {
                     "name": "pages/fixhistory/fixhistory",
                     "pathName": "pages/fixhistory/fixhistory",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/info/info",
+                    "pathName": "pages/info/info",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/billForm/billForm",
+                    "pathName": "pages/billForm/billForm",
                     "scene": null
                 }
             ]

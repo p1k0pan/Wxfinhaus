@@ -15,7 +15,12 @@ const formatDate=date=>{
 }
 const formatYearMonth=date=>{
   const year=date.getFullYear()
-  const month=date.getMonth()+1
+  const month=date.getMonth()
+  return [year,month].map(formatNumber).join('-')
+}
+const formatLastYearMonth=date=>{
+  const year=date.getFullYear()
+  const month=date.getMonth()-1
   return [year,month].map(formatNumber).join('-')
 }
 const formatNumber = n => {
@@ -26,5 +31,6 @@ const formatNumber = n => {
 module.exports = {
   formatTime:formatTime,
   formatDate:formatDate,
-  formatYearMonth:formatYearMonth
+  formatYearMonth:formatYearMonth,
+  formatLastYearMonth:formatLastYearMonth
 }

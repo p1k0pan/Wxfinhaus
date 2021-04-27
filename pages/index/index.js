@@ -1,4 +1,4 @@
-const db=wx.cloud.database().collection("User")
+const db=wx.cloud.database()
 var app=getApp()
 Page({
 
@@ -11,10 +11,10 @@ Page({
     canIUseGetUserProfile: false,
     userOpenid:"",
     hasRoom:false,
-    status:"none"
+    adminId:"onoVC5TtTkoyruqo-2CAloNAq0t4"
   },
   jumpFix:function(){
-    if(app.globalData.hasRoom){
+    if(this.data.hasRoom){
       wx.navigateTo({
         url: '/pages/fix/fix',
       })
@@ -34,6 +34,7 @@ Page({
     if(app.globalData.status=="none"){
       wx.navigateTo({
         url: '/pages/regist/regist',
+        
       })
     }
     else if(app.globalData.status=="living"){
@@ -100,18 +101,27 @@ Page({
       title: '数据加载中...',
     })
     app.getCurrentUserOpenid().then(()=>{
-      db.where({openid:app.globalData.userOpenid}).get().then(res=>{
-        console.log(2)
+      db.collection("User").where({openid:app.globalData.userOpenid}).get().then(res=>{
+        console.log(app.globalData.userOpenid)
           if(res.data.length>0){
             // console.log(res.data)
-            app.globalData.hasRoom=true
             app.globalData.status=res.data[0].status
             app.globalData.room=res.data[0].room
+            this.setData({
+              hasRoom:true,
+              userOpenid:app.globalData.userOpenid
+            })
+            app.globalData.name=res.data[0].name
+            app.globalData.startDate=res.data[0].startDate
+            app.globalData.deposit=res.data[0].deposit
+            app.globalData.startWater=res.data[0].startWater
+            app.globalData.startElect=res.data[0].startElect
+            app.globalData.contracts=res.data[0].contracts
           }
           wx.hideLoading()
       })
     })
-   
+    console.log(app.globalData)
   },
 
   /**

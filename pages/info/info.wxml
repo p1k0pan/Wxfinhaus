@@ -1,4 +1,4 @@
-<view class="welcome" style="font-style:italic;text-align:center;padding-top:20rpx;color:	#778899 ">欢迎入住朋来公寓</view>
+<view class="welcome" style="font-style:italic;text-align:center;padding-top:20rpx;color:	#778899 ;margin-bottom:20rpx">欢迎入住朋来公寓</view>
 
 <view style="background-color:white">
   <view class="section">
@@ -21,7 +21,7 @@
   <view class="section">
     <view class="content">
       <text class="first">入住时间</text>
-      <text class="second">{{registTime}}</text>
+      <text class="second">{{startDate}}</text>
     </view>
     <view class="divLine"></view>     <!-- 分割线 -->
   </view>
@@ -37,7 +37,7 @@
   <view class="section">
     <view class="content">
       <text class="first">入住用水数</text>
-      <text class="second">{{water}}</text>
+      <text class="second">{{startWater}}</text>
     </view>
     <view class="divLine"></view>     <!-- 分割线 -->
   </view>
@@ -45,9 +45,39 @@
   <view class="section">
     <view class="content">
       <text class="first">入住用电数</text>
-      <text class="second">{{elect}}</text>
+      <text class="second">{{startElect}}</text>
     </view>
     <view class="divLine"></view>     <!-- 分割线 -->
   </view>
-  
+
+  <view class="section">
+    <view class="content">
+      <text class="first">租金</text>
+      <text class="second">{{rent}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+
+  <view class="section">
+    <view class="content">
+      <text class="first">管理费</text>
+      <text class="second">{{manage}}</text>
+    </view>
+    <view class="divLine"></view>     <!-- 分割线 -->
+  </view>
+  <view class="picture">
+    <view class="uptitle">
+      <view class="title">合同</view>
+    </view>
+    <view class="upLoad">
+      <view class="uplaodImgItem"  wx:for="{{pic}}" wx:key="index" wx:for-item="picItem">
+        <image src="{{picItem}}" bindtap="previewIMG" data-src="{{picItem}}"></image>
+        <view class="deleteImg" bindtap="bindDeleteImg" data-index="{{index}}">
+          <text class="iconfont icon-chahao">×</text>
+        </view>
+      </view>
+     
+    </view>
+  </view>
 </view>
+<view class="welcome" style="text-decoration:underline;text-align:right;padding-top:40rpx;color:#1375ff;margin-right:20rpx" bindtap="contact">如需退房请提前联系房东或保安</view>

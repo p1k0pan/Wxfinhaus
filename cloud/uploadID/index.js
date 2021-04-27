@@ -16,7 +16,11 @@ exports.main = async (event, context) => {
             endDate:event.endDate,
             img:event.img,
             status:"waiting",
-            openid:event.openid
+            openid:event.openid,
+            startWater:event.startWater,
+            startElect:event.startElect,
+            deposit:event.deposit,
+            startDate:event.startDate
         }
       })
 }

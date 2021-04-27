@@ -6,13 +6,13 @@
 <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
   <swiper-item>
     <view class="thisMonth" >
-      <view class="title">403房2021年1月账单</view>
+      <view class="title">{{room}}房{{year}}年{{month}}月账单</view>
       <!-- 水费电费表格 -->
       <view class="table">
         <view class="tr bg-w">
           <view class="th">项目</view>
-          <view class="th">水费</view>
-          <view class="th">电费</view>
+          <view class="th">水费/元</view>
+          <view class="th">电费/元</view>
         </view>
         <block wx:for="{{listData}}" wx:key="code">
           <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
@@ -31,9 +31,9 @@
       <!-- 房屋租金 -->
       <view class= "table">
         <view class="tr bg-w">
-          <view class="th">房屋租金</view>
-          <view class="th">管理费</view>
-          <view class="th">总租</view>
+          <view class="th">房屋租金/元</view>
+          <view class="th">管理费/元</view>
+          <view class="th">总租/元</view>
         </view>
         <view class="tr bg-gg" wx:for="{{rent}}" wx:key="code">
             <view class="td">{{item.hause}}</view>
@@ -42,33 +42,31 @@
           </view>
       </view>
       <!-- 总额 -->
-      <view class="sum">本月总计: {{summary}}</view>
+      <view class="sum">本月总计: {{sum}} 元</view>
       <view class="btn">
         <button  type="primary" >付 款</button>
       </view>
     </view>
   </swiper-item>
   <swiper-item>
-    <view class="history" >
-      <view class="out" wx:for="{{karte}}">
-        <image src="/img/dealing.png"></image>
-        <view class="karte">
-          <view class="discript mainD">
-            <image src="/img/time.png"></image>
-            <view class="txt">{{item.date}}</view>
-          </view>
-          <view class="discript">
-            <image src="/img/room.png"></image>
-            <view class="txt">{{item.num}}</view>
+    <scroll-view  scroll-y="true" class="history" >
+      <!-- 有无维修记录显示 -->
+      <view wx:for="{{card}}" wx:for-index="idx">
+        <view class="out" bindtap="jumpBillHistory" data-idx="{{idx}}">
+            <view class="karte">
+              <view class="discript mainD">
+                <image src="/img/time.png"></image>
+                <view class="txt">{{item}}</view>
+              </view>
+              <view class="discript room">
+                <image src="/img/room.png"></image>
+                <view class="txt">{{room}}</view>
+              </view>
+            </view>  
         </view>
-          <view class="discript">
-            <image src="/img/name.png"></image>
-            <view class="txt">{{item.name}}</view>
-          </view>
-        </view>
-
       </view>
-    </view>
+      <view style="color:	#C0C0C0;text-align:center;margin:20rpx">--您尚未有更多账单--</view> 
+    </scroll-view>
   </swiper-item>
 
 

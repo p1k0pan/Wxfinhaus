@@ -1,19 +1,44 @@
 // pages/info/info.js
+var app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    room:403,
-    name:"djgjrg"
+    room:"",
+    name:"",
+    startDate:"",
+    deposit:"",
+    startWater:"",
+    startElect:"",
+    rent:0,
+    manage:300,
+    contracts:[]
   },
-
+  contact:function(){
+    wx.switchTab({
+      url: '/pages/contact/contact',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      room:app.globalData.room,
+      name:app.globalData.name,
+      startDate:app.globalData.startDate,
+      startElect:app.globalData.startElect,
+      startWater:app.globalData.startWater,
+      deposit:app.globalData.deposit,
+      contracts:app.globalData.contracts
+    })
+    this.setData({
+      rent:(parseInt(this.data.deposit)-this.data.manage*2)/2
+    })
+    console.log((parseInt(this.data.deposit)-this.data.manage*2)/2)
+    console.log(this.data.rent)
   },
 
   /**

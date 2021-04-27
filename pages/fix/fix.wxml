@@ -50,7 +50,7 @@
   </swiper-item>
   <swiper-item > <!--历史纪录块-->
     <scroll-view  scroll-y="true" class="history" >
-      <!-- 有无维修记录显示 -->
+      <!-- 有无账单显示 -->
       <view wx:for="{{card}}" wx:for-index="idx">
         <view class="out" bindtap="jumpFixHistory" data-idx="{{idx}}">
             <view class="left">

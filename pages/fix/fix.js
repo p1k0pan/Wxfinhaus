@@ -195,11 +195,8 @@ Page({
     })
     
   },
-  // topLoad:function(event){
-  //        //   该方法绑定了页面滑动到顶部的事件，然后做上拉刷新
-  //   console.log("lower");
-  // },
   jumpFixHistory: function(e){
+    //页面跳转，让本页面保存的东西放到全局里
     app.globalData.card=this.data.card
     // console.log("fix",e.currentTarget.dataset.idx)
     wx.navigateTo({

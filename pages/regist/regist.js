@@ -1,6 +1,7 @@
 // pages/regist/regist.js
 const db=wx.cloud.database().collection("User")
 var app=getApp()
+var util=require("../../utils/util.js") 
 Page({
 
   /**
@@ -19,11 +20,22 @@ Page({
     name:"",
     phone:"",
     id:"",
-    deposit:null //以后根据数额多少提交直接付款
+    deposit:null ,//以后根据数额多少提交直接付款
+    water:null,
+    elect:null
   },
   
   changeName:function(e){
     this.setData({name:e.detail.value})
+  },
+  changeDeposit:function(e){
+    this.setData({deposit:e.detail.value})
+  },
+  changeWater:function(e){
+    this.setData({water:e.detail.value})
+  },
+  changeElect:function(e){
+    this.setData({elect:e.detail.value})
   },
   changeId:function(e){
     this.setData({id:e.detail.value})
@@ -105,7 +117,7 @@ Page({
       })
 
       wx.cloud.uploadFile({
-        cloudPath: app.globalData.room+"_身份证_"+i+".jpg",
+        cloudPath: this.data.room[this.data.roomIndex]+"_身份证_"+i+".jpg",
         filePath: this.data.pic[i], // 文件路径
         success:res=>{
           // console.log(this.data.uploadPic)
@@ -124,6 +136,8 @@ Page({
         title: '提交中...',
       })
       this.uploadIMG()
+      console.log(dt.water)
+      console.log(dt.elect)
       
       wx.cloud.callFunction({
         name:"uploadID",
@@ -136,7 +150,11 @@ Page({
           from:dt.region,
           endDate:dt.date,
           img:dt.upPic,
-          openid:app.globalData.userOpenid
+          openid:app.globalData.userOpenid,
+          deposit:dt.deposit,
+          startWater:dt.water,
+          startElect:dt.elect,
+          startDate:util.formatDate(new Date())
         }
       }).then(res=>{
         console.log(dt.date)

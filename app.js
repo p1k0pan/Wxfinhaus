@@ -19,14 +19,16 @@ App({
     })
   },
   globalData:{
-    userInfo:{},
-    hasUserInfo: false,
-    canIUseGetUserProfile: false,
     userOpenid:"",
-    hasRoom:false,
     status:"none",
     room:"",
-    card:{}
+    card:{},
+    name:"",
+    startDate:"",
+    deposit:"",
+    startWater:"",
+    startElect:"",
+    contracts:[]
   }
 })
 

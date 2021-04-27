@@ -46,7 +46,7 @@
   <view class="imageBox">
     <image src="/img/id.png" style="width:60rpx;height:60rpx"></image>
   </view>
-  <input class="input" type="idcard" placeholder="请输入身份证号" placeholder-class="ph" bindblur="changeId" value="{{id}}"></input>
+  <input class="input" type="idcard" maxlength="18" placeholder="请输入身份证号" placeholder-class="ph" bindblur="changeId" value="{{id}}"></input>
 </view>
 <view class="section">
   <view class="imageBox">
@@ -62,7 +62,19 @@
   <view class="imageBox">
     <image src="/img/deposit.png"></image>
   </view>
-  <input class="input" type="text" placeholder="请询问房东押金数额/元" placeholder-class="ph" bindblur="changeName" value="{{deposit}}"></input>
+  <input class="input" type="number" placeholder="请询问房东押金数额/元" placeholder-class="ph" bindblur="changeDeposit" value="{{deposit}}"></input>
+</view>
+<view class="section">
+  <view class="imageBox">
+    <image src="/img/water.png"></image>
+  </view>
+  <input class="input" type="number" placeholder="请询问房东当前用水量" placeholder-class="ph" bindblur="changeWater" value="{{water}}"></input>
+</view>
+<view class="section">
+  <view class="imageBox">
+    <image src="/img/elect.png"></image>
+  </view>
+  <input class="input" type="number" placeholder="请询问房东当前用电量" placeholder-class="ph" bindblur="changeElect" value="{{elect}}"></input>
 </view>
 <view class="picture">
   <view class="title">上传身份证<text style="color:#D3D3D3;font-size:25rpx">（需上传身份证正反面）</text></view>

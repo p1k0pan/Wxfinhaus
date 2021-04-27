@@ -2,14 +2,37 @@
   <image src="cloud://apartment-management-3b24d52adb0.6170-apartment-management-3b24d52adb0-1304865057/1.jpg"></image>
 </view>
 
-<view class="headBox">
-  <image class="logo" src="/img/brandLogo.png" mode="widthFix"></image>
-  <text style="font-size: large;">朋 来 公 寓</text>
+<view style="display:flex;justify-content:space-between;background-color: white;align-items: center;">
+  <view class="headBox">
+    <image class="logo" src="/img/brandLogo.png" mode="widthFix"></image>
+    <text style="font-size: large;">朋 来 公 寓</text>
+  </view>
+  <view wx:if="{{userOpenid==adminId}}" style="color:#696969;margin-right:20rpx">管理员</view>
 </view>
 
 <view class="line"></view>
 
-<view class="mainBox">
+<view wx:if="{{userOpenid==adminId}}" class="mainBox">
+  <!-- logo and list...... -->
+  <view class="box" >
+    <image src="/img/bill.png" bindtap="jumpAdminBill"></image>
+    <text>账 单</text>
+  </view>
+  <view class="box" >
+    <image src="/img/fix.png" bindtap="jumpAdminFix"></image>
+    <text>维 修</text>
+  </view>
+  <view  class="box" >
+    <image src="/img/regist.png" bindtap="jumpAdminRegist"></image>
+    <text>入 住</text>
+  </view>
+  <view  class="box" >
+    <image src="/img/leave.png" bindtap="jumpAdminInfo"></image>
+    <text>退 房</text>
+  </view>
+</view>
+
+<view wx:else class="mainBox">
   <!-- logo and list...... -->
   <view class="box" >
     <image src="/img/bill.png" bindtap="jumpBill"></image>

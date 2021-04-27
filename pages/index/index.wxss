@@ -29,7 +29,6 @@ page{
   margin:0rpx 10rpx 0rpx 10rpx;
   position: absolute;
   left:0rpx;
-
 }
 .mainBox{
   background-color: white;

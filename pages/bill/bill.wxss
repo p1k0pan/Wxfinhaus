@@ -88,7 +88,7 @@ swiper{
   left: 200rpx;
 }
 .out{
-  height: 250rpx;
+  height: 100rpx;
   width: 600rpx;
   border:solid 3rpx #FFA07A;
   display: flex;
@@ -105,28 +105,34 @@ swiper{
 }
 .karte{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-left: 30rpx;
+  width:100%;
+  height: 100%;
+  justify-content: space-between;
 }
 .discript image
 {
   width: 40rpx;
   height: 40rpx;
   margin-right: 10rpx;
+  vertical-align: middle;
   /* border:solid red 1px; */
 }
 .discript{
   display: flex;
   /* border:solid red 1px; */
-  align-content: center;
-  justify-content: center;
   text-align: center;
   align-items: center;
-  font-size: 30rpx;
+}
+.room{
+  margin-right: 35rpx;
+  margin-bottom: 15rpx;
 }
 .mainD image{
   width: 60rpx;
   height: 60rpx;
+  vertical-align: middle;
 }
 .mainD{
   font-size: 50rpx;
@@ -137,3 +143,4 @@ swiper{
   margin-top: 20rpx;
 
 }
+

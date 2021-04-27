@@ -1,4 +1,6 @@
-<view class="container" bindtap="callFangdong">
-  房东
+<view class="top">
+  <view class="container" bindtap="callFangdong">
+    <view style="margin-left:20rpx">房东</view>
+  </view>
+  <view class="container" bindtap="callBaoan"><view style="margin-left:20rpx">保安</view></view>
 </view>
-<view class="container" bindtap="callBaoan">保安</view>
