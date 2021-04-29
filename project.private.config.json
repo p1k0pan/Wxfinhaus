@@ -69,6 +69,12 @@
                 {
                     "name": "pages/billForm/billForm",
                     "pathName": "pages/billForm/billForm",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/billAdmin/billAdmin",
+                    "pathName": "pages/billAdmin/billAdmin",
                     "scene": null
                 }
             ]

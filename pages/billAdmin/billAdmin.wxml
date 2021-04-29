@@ -1,0 +1,84 @@
+<view class="swiperHeader">
+  <text class="{{currentTab==0?'active':''}}" bindtap="clickTab" data-current="0">查看账单</text>
+  <text class="{{currentTab==1?'active':''}}" bindtap="clickTab" data-current="1">添加账单</text>
+</view>
+
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper-item>
+    <view class="checkBill" >
+        <!-- 选框 -->
+        <view style="display:flex;justify-content:space-around">
+            <!-- 选择房间的选框 -->
+        <view class='select_box'>
+            <view class='select' catchtap='selectTap'>
+                <text class='select_text' wx:if="{{index>=0}}">{{selectRoom[index]}}</text>
+                <text class='select_text' wx:else>请选择房间</text>
+                <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/img/b2.png'  background-size="contain"></image> 
+            </view>
+            <view class='option_box' style='height:{{selectShow?(selectRoom.length>5?325:selectRoom.length*50):0}}rpx;'>
+                <text class='option' wx:for='{{selectRoom}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+            </view>
+        </view>
+        <!-- 选择日期的选框 -->
+        <view class='select_box'>
+            <view class='select' catchtap='selectTap2'>
+                <text class='select_text' wx:if="{{index2>=0}}">{{selectDate[index2]}}</text>
+                <text class='select_text' wx:else>请选择日期</text>
+                <image class='select_img {{selectShow2&&"select_img_rotate"}}' src='/img/b2.png'  background-size="contain"></image> 
+            </view>
+            <view class='option_box' style='height:{{selectShow2?(selectDate.length>5?325:selectDate.length*50):0}}rpx;'>
+                <text class='option' wx:for='{{selectDate}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item}}</text>
+            </view>
+        </view>
+        </view>
+        <!-- 表格，如果没有选不显示 -->
+        <view style="margin-top:30rpx" wx:if="{{index2>=0}}">
+            <!-- 水费电费表格 -->
+            <view class="table">
+                <view class="tr bg-w">
+                <view class="th">项目</view>
+                <view class="th">水费/元</view>
+                <view class="th">电费/元</view>
+                </view>
+                <block wx:for="{{listData}}" wx:key="code">
+                <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+                    <view class="td">{{item.code}}</view>
+                    <view class="td">{{item.water}}</view>
+                    <view class="td">{{item.elect}}</view>
+                </view>
+                <view class="tr bg-gg" wx:else>
+                    <view class="td">{{item.code}}</view>
+                    <view class="td">{{item.water}}</view>
+                    <view class="td">{{item.elect}}</view>
+                </view>
+                </block>
+            </view>
+
+            <!-- 房屋租金 -->
+            <view class= "table">
+                <view class="tr bg-w">
+                <view class="th">房屋租金/元</view>
+                <view class="th">管理费/元</view>
+                <view class="th">总租/元</view>
+                </view>
+                <view class="tr bg-gg" wx:for="{{rent}}" wx:key="code">
+                    <view class="td">{{item.hause}}</view>
+                    <view class="td">{{item.manage}}</view>
+                    <view class="td">{{item.totalrent}}</view>
+                </view>
+            </view>
+            <!-- 总额 -->
+            <view class="sum">当月总计: {{sum}} 元</view>
+
+        </view>
+
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view  scroll-y="true" class="addBill" >
+     
+    </scroll-view>
+  </swiper-item>
+
+
+</swiper>

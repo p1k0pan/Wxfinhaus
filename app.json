@@ -10,7 +10,11 @@
     "pages/billForm/billForm",
     "pages/login/login",
     "pages/fixhistory/fixhistory",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/billAdmin/billAdmin",
+    "pages/fixAdmin/fixAdmin",
+    "pages/registAdmin/registAdmin",
+    "pages/leaveAdmin/leaveAdmin"
   ],
   "window": {
     "backgroundTextStyle": "light",

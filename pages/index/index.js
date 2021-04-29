@@ -11,7 +11,8 @@ Page({
     canIUseGetUserProfile: false,
     userOpenid:"",
     hasRoom:false,
-    adminId:"onoVC5TtTkoyruqo-2CAloNAq0t4"
+    adminId:"onoVC5TtTkoyruqo-2CAloNAq0t4",
+    isAdmin:false
   },
   jumpFix:function(){
     if(this.data.hasRoom){
@@ -92,6 +93,26 @@ Page({
       })
     }
   },
+  jumpAdminBill(){
+    wx.navigateTo({
+      url: '/pages/billAdmin/billAdmin',
+    })
+  },
+  jumpAdminRegist(){
+    wx.navigateTo({
+      url: '/pages/registAdmin/registAdmin',
+    })
+  },
+  jumpAdminFix(){
+    wx.navigateTo({
+      url: '/pages/fixAdmin/fixAdmin',
+    })
+  },
+  jumpAdminLeave(){
+    wx.navigateTo({
+      url: '/pages/leaveAdmin/leaveAdmin',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -103,22 +124,23 @@ Page({
     app.getCurrentUserOpenid().then(()=>{
       db.collection("User").where({openid:app.globalData.userOpenid}).get().then(res=>{
         console.log(app.globalData.userOpenid)
-          if(res.data.length>0){
-            // console.log(res.data)
-            app.globalData.status=res.data[0].status
-            app.globalData.room=res.data[0].room
-            this.setData({
-              hasRoom:true,
-              userOpenid:app.globalData.userOpenid
-            })
-            app.globalData.name=res.data[0].name
-            app.globalData.startDate=res.data[0].startDate
-            app.globalData.deposit=res.data[0].deposit
-            app.globalData.startWater=res.data[0].startWater
-            app.globalData.startElect=res.data[0].startElect
-            app.globalData.contracts=res.data[0].contracts
-          }
-          wx.hideLoading()
+        if(app.globalData.userOpenid!=this.data.userOpenid && res.data.length>0){
+          // 如果不是管理员并且查询到数据
+          app.globalData.status=res.data[0].status
+          app.globalData.room=res.data[0].room
+          this.setData({
+            hasRoom:true,
+            userOpenid:app.globalData.userOpenid
+          })
+          app.globalData.name=res.data[0].name
+          app.globalData.startDate=res.data[0].startDate
+          app.globalData.deposit=res.data[0].deposit
+          app.globalData.startWater=res.data[0].startWater
+          app.globalData.startElect=res.data[0].startElect
+          app.globalData.contracts=res.data[0].contracts
+        }
+        else{this.setData({isAdmin:true})}
+        wx.hideLoading()
       })
     })
     console.log(app.globalData)

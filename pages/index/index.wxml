@@ -7,12 +7,12 @@
     <image class="logo" src="/img/brandLogo.png" mode="widthFix"></image>
     <text style="font-size: large;">朋 来 公 寓</text>
   </view>
-  <view wx:if="{{userOpenid==adminId}}" style="color:#696969;margin-right:20rpx">管理员</view>
+  <view wx:if="{{isAdmin}}" style="color:#696969;margin-right:20rpx">管理员</view>
 </view>
 
 <view class="line"></view>
 
-<view wx:if="{{userOpenid==adminId}}" class="mainBox">
+<view wx:if="{{isAdmin}}" class="mainBox">
   <!-- logo and list...... -->
   <view class="box" >
     <image src="/img/bill.png" bindtap="jumpAdminBill"></image>

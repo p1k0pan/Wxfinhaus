@@ -103,8 +103,8 @@ Page({
         [str5]:elect1.price,
         [str6]:usedWater,
         [str7]:usedElect,
-        [str8]:usedWater*water1.price,
-        [str9]:usedElect*elect1.price,
+        [str8]:(usedWater*water1.price).toFixed(1),// 解决乘法后出现奇怪的小数
+        [str9]:(usedElect*elect1.price).toFixed(1),
         [hause]:hauseValue,
         [manage]:manageValue,
         [totalrent]:totalrentValue,

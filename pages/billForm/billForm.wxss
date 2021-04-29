@@ -3,31 +3,7 @@
   border-bottom: 4rpx solid #006bff;
 
 }
-.swiperHeader text{
-  padding:10rpx;
-}
-.thisMonth{
 
-}
-.history{
-  background-color:	#F5F5F5;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-}
-swiper{
-  height: 1220rpx;
-  width: 100%;
-  /* position: absolute; */
-  /* bottom: 0%; */
-}
-.swiperHeader{
-  justify-content: space-around;
-  display: flex;
-  padding-bottom: 5rpx;
-}
 
 .table {
   border: 0px solid darkgray;
