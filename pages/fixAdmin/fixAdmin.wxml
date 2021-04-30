@@ -1,2 +1,63 @@
-<!--pages/fixAdmin/fixAdmin.wxml-->
-<text>pages/fixAdmin/fixAdmin.wxml</text>
+<view class="swiperHeader">
+  <text class="{{currentTab==0?'active':''}}" bindtap="clickTab" data-current="0">待维修</text>
+  <text class="{{currentTab==1?'active':''}}" bindtap="clickTab" data-current="1">已维修</text>
+</view>
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+   
+  <swiper-item>  <!-- 待维修卡片 -->
+    <scroll-view  scroll-y="true" class="history" >
+      <view wx:for="{{card1}}" wx:for-index="idx">
+        <view class="out" bindtap="changeStatus" data-idx="{{idx}}">
+            <view class="left">
+              <image src="/img/dealing.png"></image>
+              <view>{{item.status}}</view>
+            </view>
+            <view class="karte">
+              <view class="discript mainD">
+                <image src="/img/time.png"></image>
+                <view class="txt">{{item.date}}</view>
+              </view>
+              <view class="discript">
+                <image src="/img/room.png"></image>
+                <view class="txt">{{item.room}}</view>
+            </view>
+              <view class="discript">
+                <image src="/img/fixThing.png"></image>
+                <view class="txt">{{item.item}}</view>
+              </view>
+            </view>  
+        </view>
+      </view>
+      <view style="color:	#C0C0C0;text-align:center;margin:20rpx">--您尚未有更多维修记录--</view> 
+    </scroll-view>
+  </swiper-item>
+  <swiper-item > <!--已维修卡片-->
+    <scroll-view  scroll-y="true" class="history" >
+      <view wx:for="{{card2}}" wx:for-index="idx">
+        <view class="out"  bindtap="checkFixed" data-idx="{{idx}}">
+            <view class="left">
+              <image src="/img/finish.png"></image>
+              <view>{{item.status}}</view>
+            </view>
+            <view class="karte">
+              <view class="discript mainD">
+                <image src="/img/time.png"></image>
+                <view class="txt">{{item.date}}</view>
+              </view>
+              <view class="discript">
+                <image src="/img/room.png"></image>
+                <view class="txt">{{item.room}}</view>
+            </view>
+              <view class="discript">
+                <image src="/img/fixThing.png"></image>
+                <view class="txt">{{item.item}}</view>
+              </view>
+            </view>  
+        </view>
+      </view>
+      <view style="color:	#C0C0C0;text-align:center;margin:20rpx">--您尚未有更多维修记录--</view> 
+    </scroll-view>
+  </swiper-item>
+
+
+</swiper>

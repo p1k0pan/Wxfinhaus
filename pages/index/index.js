@@ -124,7 +124,7 @@ Page({
     app.getCurrentUserOpenid().then(()=>{
       db.collection("User").where({openid:app.globalData.userOpenid}).get().then(res=>{
         console.log(app.globalData.userOpenid)
-        if(app.globalData.userOpenid!=this.data.userOpenid && res.data.length>0){
+        if(app.globalData.userOpenid!=this.data.adminId && res.data.length>0){
           // 如果不是管理员并且查询到数据
           app.globalData.status=res.data[0].status
           app.globalData.room=res.data[0].room
@@ -139,7 +139,10 @@ Page({
           app.globalData.startElect=res.data[0].startElect
           app.globalData.contracts=res.data[0].contracts
         }
-        else{this.setData({isAdmin:true})}
+        else{
+          this.setData({isAdmin:true})
+          app.globalData.isAdmin=true
+        }
         wx.hideLoading()
       })
     })

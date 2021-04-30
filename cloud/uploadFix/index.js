@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
       room:event.room,
       date:event.date,
       img:event.img,
-      status:"待审核"
+      status:"待维修"
     }
   })
 }

@@ -54,7 +54,8 @@
       <view wx:for="{{card}}" wx:for-index="idx">
         <view class="out" bindtap="jumpFixHistory" data-idx="{{idx}}">
             <view class="left">
-              <image src="/img/finish.png"></image>
+              <image src="/img/dealing.png" mode="scaleToFill" wx:if='{{item.status=="待维修"}}'></image>
+              <image src="/img/finish.png" mode="scaleToFill" wx:else></image>
               <view>{{item.status}}</view>
             </view>
             <view class="karte">

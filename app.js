@@ -28,7 +28,8 @@ App({
     deposit:"",
     startWater:"",
     startElect:"",
-    contracts:[]
+    contracts:[],
+    isAdmin:false
   }
 })
 

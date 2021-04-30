@@ -12,7 +12,7 @@ Page({
     index:-1,
     pic:[],//最多三张
     picCount:0,
-    card:{},
+    card:[],
     desc:"",
     upPic:[],
 
@@ -118,23 +118,15 @@ Page({
               },
               success:res=>{
                 //刚提交需要刷新一下历史纪录
-                wx.cloud.callFunction({
-                  name:"getFixHistory",
-                  data:{
-                    room:app.globalData.room
-                  }
-                }).then(res=>{
-                  const result=res.result.data
-                  this.setData({
-                    card:result,
-                    index:-1,
-                    pic:[],//最多三张
-                    picCount:0,
-                    card:{},
-                    desc:"",
-                    upPic:[],
-                  })
+                this.setData({
+                  index:-1,
+                  pic:[],//最多三张
+                  picCount:0,
+                  card:{},
+                  desc:"",
+                  upPic:[],
                 })
+                this.onShow()
                 wx.showToast({
                   title: '提交成功',
                   icon:"success"
@@ -179,22 +171,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // console.log(Object.keys(this.data.karte).length)
-    // 获取维修记录
-    wx.cloud.callFunction({
-      name:"getFixHistory",
-      data:{
-        room:app.globalData.room
-      }
-    }).then(res=>{
-      const result=res.result.data
-      this.setData({
-        card:result
-      })
-    })
-    
-  },
+
   jumpFixHistory: function(e){
     //页面跳转，让本页面保存的东西放到全局里
     app.globalData.card=this.data.card
@@ -202,5 +179,34 @@ Page({
     wx.navigateTo({
       url: '/pages/fixhistory/fixhistory?idx='+e.currentTarget.dataset.idx,
     })
+  },
+  onShow:function(options){
+    // 获取维修记录
+    wx.cloud.callFunction({
+      name:"getFixHistory",
+      data:{
+        room:app.globalData.room
+      }
+    }).then(res=>{
+      var result=res.result.data
+      result=this.sortStatus(result)
+      console.log
+      this.setData({
+        card:result
+      })
+    })
+  },
+  sortStatus(result){
+    // 让待维修的永远在前面
+    for (var i =0;i<result.length-1;i++){
+      if(result[i+1].status=="待维修"&&result[i].status=="已维修")
+      {
+        var temp=result[i]
+        result[i]=result[i+1]
+        result[i+1]=temp
+        console.log(1)
+      }
+    }
+    return result
   }
 })

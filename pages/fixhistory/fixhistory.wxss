@@ -6,12 +6,12 @@ page{
 .headTitle{
   font-size: 50rpx;
   text-align:center;
-  padding-top:30rpx
+  padding-top:20rpx
 }
 .headBody{
   display: flex;
   justify-content: space-around;
-  margin-top: 30rpx;
+  margin-top: 15rpx;
   font-size: 30rpx;
   font-style: italic;
   color:gray;
@@ -34,7 +34,7 @@ page{
   }
 
   .section{
-    padding:30rpx 30rpx 30rpx 30rpx;
+    padding:20rpx 30rpx 30rpx 30rpx;
   }
   .picker{
     border:	#F5F5F5 1rpx solid;
@@ -105,6 +105,10 @@ page{
   .camera image{
     height: 50rpx;
     width: 50rpx;
+  }
+
+  .btn{
+    width:30%;
   }
   
   

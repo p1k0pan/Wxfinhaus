@@ -37,8 +37,13 @@
         </view>
     </view>
     <view class="status">
-        <image src="/img/dealing.png" mode="scaleToFill"></image>
         状态：
+        <image src="/img/dealing.png" mode="scaleToFill" wx:if='{{picstatus}}'></image>
+        <image src="/img/finish.png" mode="scaleToFill" wx:else></image>
         <text style="font-style:italic;text-decoration:underline;color:gray">{{status}}</text>
+    </view>
+    <view wx:if="{{isAdmin}}" style="margin-top:30rpx;display:flex; justify-content:space-around">
+        <button class="btn" type="primary" bindtap="tapFinished" wx:if="{{picstatus}}">完成</button>
+        <button class="btn" type="warn" bindtap="tapDelete">删除</button>
     </view>
 </view>
