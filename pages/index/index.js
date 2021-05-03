@@ -12,7 +12,10 @@ Page({
     userOpenid:"",
     hasRoom:false,
     adminId:"onoVC5TtTkoyruqo-2CAloNAq0t4",
-    isAdmin:false
+    isAdmin:false,
+    text:[], //消息内容
+    n:[false,false,false,false,false], //点击文本框再显示前面序号
+    emp:[true,true,true,true] // 第一条不写下面的框用不了
   },
   jumpFix:function(){
     if(this.data.hasRoom){
@@ -146,91 +149,66 @@ Page({
         wx.hideLoading()
       })
     })
-    console.log(app.globalData)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-    // var that=this
-    // if(!this.data.hasUserInfo)
-    // {
-    //   wx.showModal({
-    //     title: '申请获取以下权限',
-    //     content: '获得你的公开信息(昵称,头像,手机等)',
-    //     showCancel: true,//是否显示取消按钮
-    //     success: function (res) {
-    //         if (res.cancel) {
-    //           //点击取消,默认隐藏弹框
-    //         } else {
-    //           //点击确定
-            
-    //           wx.getUserProfile({
-    //             desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-    //             success: (res) => {
-    //               that.setData({
-    //                 userInfo: res.userInfo,
-    //                 hasUserInfo: true
-    //               }),
-    //               console.log(res)
-    //             }
-    //           })
-    //         }
-    //     },
-    //   })
-    // }
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  },
-  getOpenid(){
-    wx.cloud.callFunction({
-      name:'getOpenid',
-      data:{
-        a: 12,
-        b: 19,
+    db.collection("Message").get().then(res=>{
+      
+      var text=[]
+      var n=this.data.n
+      var emp=this.data.emp
+      for (var i=0;i<5;i++)
+      {
+        text[i]=res.data[0].msg[i]
+        if(res.data[0].msg[i]!=null){
+          n[i]=true
+          if(i<4){
+            emp[i]=false
+          }
+        }
       }
-    }).then(console.log)
+      this.setData({text:text,n:n,emp:emp})
+    })
+  },
+  areaInput(e){
+    var str="emp["+e.target.dataset.num+"]";
+    this.setData({
+      [str]:false
+    })
+  },
+  areaBlur(e){
+    if (e.detail.value == ""){
+      var str1="n["+e.target.dataset.num+"]";
+      var str2="emp["+e.target.dataset.num+"]";
+      this.setData({[str1]:false})
+      this.setData({[str2]:true})
+    }
+    else{
+      var str3="text["+e.target.dataset.num+"]";
+      this.setData({[str3]:e.detail.value})
+    }
+  },
+  areaFocus(e){
+    var str1="n["+e.target.dataset.num+"]";
+    this.setData({[str1]:true})
+  },
+  
+  // 云函数位置不够 只能用普通函数添加，update的时候注意权限，到时修改需要去云数据库里修改_openid
+  releaseMsg(){
+    db.collection("Message").doc('28ee4e3e608c0de413f2d49a4216b27a').update({
+      data: {
+        msg: this.data.text
+      },
+      success:res=>{
+        console.log("1")
+      },
+      fail:res=>{
+        console.log(res)
+      }
+    })
+  },
+  clearMsg(){
+    this.setData({
+      text:[], //消息内容
+      n:[false,false,false,false,false], //点击文本框再显示前面序号
+      emp:[true,true,true,true] // 第一条不写下面的框用不了
+    })
   }
 })
