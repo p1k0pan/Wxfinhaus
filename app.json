@@ -14,7 +14,8 @@
     "pages/billAdmin/billAdmin",
     "pages/fixAdmin/fixAdmin",
     "pages/registAdmin/registAdmin",
-    "pages/leaveAdmin/leaveAdmin"
+    "pages/leaveAdmin/leaveAdmin",
+    "pages/registDetail/registDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

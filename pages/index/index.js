@@ -121,36 +121,8 @@ Page({
    */
   onLoad: function (options) {
     // var that=this
-    wx.showLoading({
-      title: '数据加载中...',
-    })
-    app.getCurrentUserOpenid().then(()=>{
-      db.collection("User").where({openid:app.globalData.userOpenid}).get().then(res=>{
-        console.log(app.globalData.userOpenid)
-        if(app.globalData.userOpenid!=this.data.adminId && res.data.length>0){
-          // 如果不是管理员并且查询到数据
-          app.globalData.status=res.data[0].status
-          app.globalData.room=res.data[0].room
-          this.setData({
-            hasRoom:true,
-            userOpenid:app.globalData.userOpenid
-          })
-          app.globalData.name=res.data[0].name
-          app.globalData.startDate=res.data[0].startDate
-          app.globalData.deposit=res.data[0].deposit
-          app.globalData.startWater=res.data[0].startWater
-          app.globalData.startElect=res.data[0].startElect
-          app.globalData.contracts=res.data[0].contracts
-        }
-        else{
-          this.setData({isAdmin:true})
-          app.globalData.isAdmin=true
-        }
-        wx.hideLoading()
-      })
-    })
+    
     db.collection("Message").get().then(res=>{
-      
       var text=[]
       var n=this.data.n
       var emp=this.data.emp
@@ -165,6 +137,37 @@ Page({
         }
       }
       this.setData({text:text,n:n,emp:emp})
+    })
+  },
+  onReady:function(){
+    wx.showLoading({
+      title: '数据加载中...',
+    })
+    app.getCurrentUserOpenid().then(()=>{
+      db.collection("User").where({openid:app.globalData.userOpenid}).get().then(res=>{
+        console.log(app.globalData.userOpenid)
+        console.log(res.data.length>0)
+        if(app.globalData.userOpenid!=this.data.adminId && res.data.length>0){
+          // 如果不是管理员并且查询到数据 赋值并限制再次注册
+          app.globalData.status=res.data[0].status
+          app.globalData.room=res.data[0].room
+          this.setData({
+            hasRoom:true,
+            userOpenid:app.globalData.userOpenid
+          })
+          app.globalData.name=res.data[0].name
+          app.globalData.startDate=res.data[0].startDate
+          app.globalData.deposit=res.data[0].deposit
+          app.globalData.startWater=res.data[0].startWater
+          app.globalData.startElect=res.data[0].startElect
+          app.globalData.contracts=res.data[0].contracts
+        }
+        else if(app.globalData.userOpenid==this.data.adminId ){
+          this.setData({isAdmin:true})
+          app.globalData.isAdmin=true
+        }
+        wx.hideLoading()
+      })
     })
   },
   areaInput(e){

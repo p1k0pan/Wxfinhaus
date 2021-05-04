@@ -1,1 +1,109 @@
-/* pages/registAdmin/registAdmin.wxss */
+.swiperHeader{
+    justify-content: space-around;
+    display: flex;
+    padding-bottom: 5rpx;
+  }
+  .active{
+    color:#006bff;
+    border-bottom: 4rpx solid #006bff;
+  
+  }
+  .swiperHeader text{
+    padding:10rpx;
+  }
+  .uptitle{
+    display: flex;
+  }
+  .bi{
+    color:#808080;
+    font-size: 20rpx;
+  }
+  .fixRequest{
+    background-color:	#F5F5F5;
+    width: 100%;
+    height: 100%;
+  }
+  .history{
+    background-color:	#F5F5F5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  swiper{
+    height: 1130rpx;
+    width: 100%;
+    /* position: absolute; */
+    /* bottom: 0%; */
+  }
+  
+  .out{
+    height: 250rpx;
+    width: 600rpx;
+    border:solid 3rpx #FFA07A;
+    display: flex;
+    margin-top:30rpx ;
+    margin-left: 70rpx;
+    background-color:		#FFFAF0;
+    border-radius: 20rpx ;
+    box-shadow:2rpx 2rpx 10rpx #808080;
+  }
+  .out image{
+    width: 200rpx;
+    height: 200rpx;
+    padding: 20rpx 0 0 10rpx;
+  }
+  .karte{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30rpx;
+   
+  }
+  .discript image
+  {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+    /* border:solid red 1px; */
+  }
+  .discript{
+    display: flex;
+    /* border:solid red 1px; */
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 30rpx;
+  }
+  .mainD image{
+    width: 60rpx;
+    height: 60rpx;
+    vertical-align: middle;
+  }
+  .mainD{
+    font-size: 50rpx;
+    color:		#4169E1;
+    margin-bottom: 10rpx;
+  }
+  .txt{
+    margin-top: 20rpx;
+  }
+  .left image{
+    width: 150rpx;
+    height: 150rpx;
+  }
+  .left{
+    text-align: center;
+    font-size: 30rpx;
+    color:	#808080;
+  }
+  .line{
+    display:flex;
+    background-color:white;
+    margin-bottom:20rpx;
+    height:70rpx;
+    align-items: center;
+    border-bottom:0.7rpx solid rgba(	0,0,139,0.3)
+  }
+  

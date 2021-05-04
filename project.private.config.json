@@ -81,6 +81,18 @@
                 {
                     "name": "pages/fixAdmin/fixAdmin",
                     "pathName": "pages/fixAdmin/fixAdmin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/registAdmin/registAdmin",
+                    "pathName": "pages/registAdmin/registAdmin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/registDetail/registDetail",
+                    "pathName": "pages/registDetail/registDetail",
                     "scene": null
                 }
             ]

@@ -138,14 +138,9 @@ Page({
         let promise = new Promise(function (resolve, reject) {
             // console.log(that.data)
             if (that.data.billRes.result.data[0].elect[0]==elect1){ //如果当月就是入住第一个月,上月的就是初始数据
-                wx.cloud.callFunction({
-                    name:'getUser',
-                    data:{
-                        room:parseInt(that.data.selectRoom[that.data.index])
-                    }
-                }).then(res=>{
-                    var elect2={'amount':res.result.data[0].startElect}
-                    var water2={'amount':res.result.data[0].startWater}
+                db.collection("User").where({room:parseInt(that.data.selectRoom[that.data.index])}).get().then(res=>{
+                    var elect2={'amount':res.data[0].startElect}
+                    var water2={'amount':res.data[0].startWater}
                     console.log(water2)
                     that.setData({
                         water2:water2,

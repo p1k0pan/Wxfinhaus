@@ -4,9 +4,9 @@
   <view class="imageBox">
     <image src="/img/room.png" style="width:70rpx;height:70rpx"></image>
   </view> 
-  <picker bindchange="roomChange" value="{{roomIndex}}" range="{{room}}">
+  <picker bindchange="roomChange" value="{{roomIndex}}" range="{{allRoom}}">
     <view class="picker">
-      <view style="color:#808080" wx:if="{{roomIndex<0}}">请选择入住房间</view><view >{{room[roomIndex]}}</view>
+      <view style="color:#808080" wx:if="{{roomIndex<0}}">请选择入住房间</view><view >{{allRoom[roomIndex]}}</view>
     </view>
   </picker>
 </view>

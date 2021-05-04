@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    room:[401,304,502,306],
+    allRoom:[304,401,502,405,204],
     sex:["男","女"],
     roomIndex:-1,
     sexIndex:-1,
@@ -113,11 +113,11 @@ Page({
       //setdata 数组动态索引必须这样写
       var str="upPic["+i+"]";
       this.setData({
-        [str]:"cloud://apartment-management-3b24d52adb0.6170-apartment-management-3b24d52adb0-1304865057/"+this.data.room[this.data.roomIndex]+"_身份证_"+i+".jpg"
+        [str]:"cloud://apartment-management-3b24d52adb0.6170-apartment-management-3b24d52adb0-1304865057/"+this.data.allRoom[this.data.roomIndex]+"_身份证_"+i+".jpg"
       })
 
       wx.cloud.uploadFile({
-        cloudPath: this.data.room[this.data.roomIndex]+"_身份证_"+i+".jpg",
+        cloudPath: this.data.allRoom[this.data.roomIndex]+"_身份证_"+i+".jpg",
         filePath: this.data.pic[i], // 文件路径
         success:res=>{
           // console.log(this.data.uploadPic)
@@ -145,7 +145,7 @@ Page({
           name:dt.name,
           phone:dt.phone,
           id:dt.id,
-          room:dt.room[dt.roomIndex],
+          room:dt.allRoom[dt.roomIndex],
           sex:dt.sex[dt.sexIndex],
           from:dt.region,
           endDate:dt.date,
@@ -162,7 +162,7 @@ Page({
         console.log(dt.upPic)
         app.globalData.status="waiting"
         app.globalData.hasRoom=true
-        app.globalData.room=dt.room[dt.roomIndex]
+        app.globalData.room=dt.allRoom[dt.roomIndex]
         wx.showToast({
           title: '提交成功',
           icon:"success"

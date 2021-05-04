@@ -24,7 +24,7 @@
   </view>
   <view  class="box" >
     <image src="/img/regist.png" bindtap="jumpAdminRegist"></image>
-    <text>入 住</text>
+    <text>租 户</text>
   </view>
   <view  class="box" >
     <image src="/img/leave.png" bindtap="jumpAdminInfo"></image>
@@ -33,7 +33,6 @@
 </view>
 
 <view wx:else class="mainBox">
-  <!-- logo and list...... -->
   <view class="box" >
     <image src="/img/bill.png" bindtap="jumpBill"></image>
     <text>账 单</text>
@@ -44,11 +43,11 @@
   </view>
   <view  class="box" >
     <image src="/img/regist.png" bindtap="jumpRegist"></image>
-    <text>住 户</text>
+    <text>入 住</text>
   </view>
   <view  class="box" >
     <image src="/img/leave.png" bindtap="jumpInfo"></image>
-    <text>住户信息</text>
+    <text>信 息</text>
   </view>
 </view>
 

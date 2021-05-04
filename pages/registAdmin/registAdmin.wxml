@@ -1,2 +1,49 @@
-<!--pages/registAdmin/registAdmin.wxml-->
-<text>pages/registAdmin/registAdmin.wxml</text>
+<view class="swiperHeader">
+  <text class="{{currentTab==0?'active':''}}" bindtap="clickTab" data-current="0">入住确认</text>
+  <text class="{{currentTab==1?'active':''}}" bindtap="clickTab" data-current="1">查看租户</text>
+</view>
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper-item> <!--最近入住确认-->
+    <scroll-view  scroll-y="true" class="history" >
+      <view wx:for="{{card1}}" wx:for-index="idx" >
+        <view class="out" bindtap="changeStatus" data-rr="{{item.room}}" bindtap="confirmRegist">
+            <view class="left">
+              <image src="/img/dealing.png"></image>
+              <view>待入住</view>
+            </view>
+            <view class="karte">
+              <view class="discript mainD">
+                <image src="/img/time.png"></image>
+                <view class="txt">{{item.startDate}}</view>
+              </view>
+              <view class="discript">
+                <image src="/img/room.png"></image>
+                <view class="txt">{{item.room}}</view>
+            </view>
+              <view class="discript">
+                <image src="/img/name.png"></image>
+                <view class="txt">{{item.name}}</view>
+              </view>
+            </view>  
+        </view>
+      </view>
+      <view style="color:	#C0C0C0;text-align:center;margin:20rpx">--您尚未有更多入住记录--</view> 
+    </scroll-view>
+  </swiper-item>
+  <swiper-item > <!--全部入住人-->
+    <scroll-view  scroll-y="true" class="history" >
+        <view wx:for="{{waitingIs}}" class="line"  bindtap="confirmRegist" data-rr="{{item}}">
+            <image src="/img/yHause.png"  style="width:50rpx;height:50rpx;margin-left:50rpx"></image>
+            <view style="padding:6rpx">{{item}}</view>
+        </view>
+        <view wx:for="{{livingIs}}" class="line"  bindtap="checkRegist" data-rr="{{item}}">
+            <image src="/img/greenHause.png"  style="width:50rpx;height:50rpx;margin-left:50rpx"></image>
+            <view style="padding:6rpx">{{item}}</view>
+        </view>
+        <view wx:for="{{diff}}" class="line" data-rr="{{item}}">
+            <image src="/img/grayHause.png"  style="width:50rpx;height:50rpx;margin-left:50rpx"></image>
+            <view style="padding:6rpx">{{item}}</view>
+        </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
