@@ -27,7 +27,7 @@
     <text>租 户</text>
   </view>
   <view  class="box" >
-    <image src="/img/leave.png" bindtap="jumpAdminInfo"></image>
+    <image src="/img/leave.png" bindtap="jumpAdminLeave"></image>
     <text>退 房</text>
   </view>
 </view>

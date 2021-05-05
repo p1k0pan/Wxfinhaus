@@ -1,2 +1,9 @@
-<!--pages/leaveAdmin/leaveAdmin.wxml-->
-<text>pages/leaveAdmin/leaveAdmin.wxml</text>
+<checkbox-group bindchange="checkboxChange" style="width:100%;height:100%">
+    <label class="line" wx:for="{{living}}">
+        <view style="margin-left:50rpx">
+            <checkbox style="margin-right:10rpx" value="{{item}}"/>{{item}}
+        </view>
+    </label>
+</checkbox-group>
+<button type="warn" style="width:50%;margin-top:50rpx;float:bottom" bindtap="checkOut">退 房</button>
+

@@ -1,1 +1,11 @@
-/* pages/leaveAdmin/leaveAdmin.wxss */
+.line{
+    display:flex;
+    background-color:white;
+    margin-bottom:20rpx;
+    height:70rpx;
+    align-items: center;
+    border-bottom:0.7rpx solid rgba(	0,0,139,0.3)
+  }
+  page{
+    height: 1000rpx;
+  }
