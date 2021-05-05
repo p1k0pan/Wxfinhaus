@@ -11,9 +11,6 @@
 .swiperHeader text{
   padding:10rpx;
 }
-.uptitle{
-  display: flex;
-}
 .bi{
   color:#808080;
   font-size: 20rpx;

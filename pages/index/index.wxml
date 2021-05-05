@@ -52,7 +52,7 @@
 </view>
 
 <!-- some gap -->
-<view style="display:flex;justify-content:space-between;background-color:white;height:80rpx;margin-top:20rpx">
+<view style="display:flex;justify-content:space-between;background-color:white;height:80rpx;margin-top:20rpx;padding-bottom:10rpx">
   <view class="infoBox">
     <image class="logo" src="/img/info.png" mode="widthFix"></image>
     <text style="font-size: large;">消 息</text>
@@ -60,7 +60,7 @@
   <view style="align-items: center;margin-top: 35rpx;margin-right:20rpx;color:#1E90FF;font-style:italic;text-decoration:underline">用户须知</view>
 </view>
 
-<!-- <view class="line"></view> -->
+<view class="line"></view>
 <view class="contentBox">
   <view class="txt">
     <view class="num"><text wx:if="{{n[0]}}">1.</text></view>
@@ -84,6 +84,6 @@
   </view>
 </view>
 <view>
-  <button wx:if="{{isAdmin}}" type="primary" size="mini" style="float:right;margin-right:30rpx;width:30%" bindtap="releaseMsg">发布</button>
-  <button wx:if="{{isAdmin}}" type="warn" size="mini" style="float:right;margin-right:30rpx;width:30%" bindtap="clearMsg">清空</button>
+  <button wx:if="{{isAdmin}}" type="primary" size="mini" style="float:right;margin-right:30rpx;width:30%;margin-top:20rpx" bindtap="releaseMsg">发布</button>
+  <button wx:if="{{isAdmin}}" type="warn" size="mini" style="float:right;margin-right:30rpx;width:30%; margin-top:20rpx" bindtap="clearMsg">清空</button>
 </view>
