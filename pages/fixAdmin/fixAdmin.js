@@ -29,22 +29,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+        this.getFixStatus()
     },
     getFixStatus(){
         var that=this
         return new Promise(function (resolve, reject) {
-            wx.cloud.callFunction({
-                name:'getFixStatus'
-            }).then(res=>{
-                var f1=res.result.data.filter((value)=>{
-                  return value.status=="待维修"
-                }) //获取待维修的数据
-                var f2=res.result.data.filter((value)=>{
-                  return value.status=="已维修"
-                }) //获取待维修的数据
-                that.setData({card1:f1,card2:f2})
-                resolve(res)
+          db.collection("Repair").where({}).get().then(res=>{
+            console.log(res)
+              var f1=res.data.filter((value)=>{
+                return value.status=="待维修"
+              }) //获取待维修的数据
+              var f2=res.data.filter((value)=>{
+                return value.status=="已维修"
+              }) //获取待维修的数据
+              that.setData({card1:f1,card2:f2})
+              resolve(res)
             })
         })
     },
@@ -69,38 +68,4 @@ Page({
     })
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

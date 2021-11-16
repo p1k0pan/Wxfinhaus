@@ -69,14 +69,78 @@
             </view>
             <!-- 总额 -->
             <view class="sum">当月总计: {{sum}} 元</view>
-
         </view>
-
     </view>
   </swiper-item>
   <swiper-item>
     <scroll-view  scroll-y="true" class="addBill" >
-     
+        <view style="display:flex;justify-content:space-around">
+            <view style="margin-top:30rpx;color:gray">{{dd}}的账单</view>
+            <view class='select_box'>
+                <view class='select' catchtap='selectTap3'>
+                    <text class='select_text' wx:if="{{index3>=0}}">{{livingRoom[index3]}}</text>
+                    <text class='select_text' wx:else>请选择房间</text>
+                    <image class='select_img {{selectShow3&&"select_img_rotate"}}' src='/img/b2.png'  background-size="contain"></image> 
+                </view>
+                <view class='option_box' style='height:{{selectShow3?(livingRoom.length>5?325:livingRoom.length*50):0}}rpx;'>
+                    <text class='option' wx:for='{{livingRoom}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item}}</text>
+            </view>
+        </view>   
+        </view>
+
+        <view style="margin-top:30rpx" >
+            <!-- 水费电费表格 -->
+            <view class="table">
+                <view class="tr bg-w">
+                    <view class="th">项目</view>
+                    <view class="th">水费/元</view>
+                    <view class="th">电费/元</view>
+                </view>
+                <block wx:for="{{addList}}" wx:key="code">
+                    <view class="tr bg-g" wx:if="{{index ==0}}">
+                        <view class="td">{{item.code}}</view>
+                        <view class="td">
+                            <input type="digit" bindblur="changeWater" data-current="{{index}}" value="{{water1}}"></input>
+                        </view>
+                        <view class="td">
+                            <input type="digit" bindblur="changeElect" data-current="{{index}}" value="{{elect1}}"></input>
+                        </view>
+                    </view>
+                    <view class="tr bg-g" wx:if="{{index ==2}}">
+                        <view class="td">{{item.code}}</view>
+                        <view class="td"><input type="digit" bindblur="changeWater" data-current="{{index}}" value="{{priceWater}}"/></view>
+                        <view class="td"><input type="digit" bindblur="changeElect" data-current="{{index}}" value="{{priceElect}}"/></view>
+                    </view>
+                    <view class="tr bg-g" wx:elif="{{index==4}}">
+                        <view class="td">{{item.code}}</view>
+                        <view class="td">{{item.water}}</view>
+                        <view class="td">{{item.elect}}</view>
+                    </view>
+                    <view class="tr bg-gg" wx:elif="{{index % 2!=0}}">
+                        <view class="td">{{item.code}}</view>
+                        <view class="td">{{item.water}}</view>
+                        <view class="td">{{item.elect}}</view>
+                    </view>
+                </block>
+            </view>
+
+            <!-- 房屋租金 -->
+            <view class= "table">
+                <view class="tr bg-w">
+                    <view class="th">房屋租金/元</view>
+                    <view class="th">管理费/元</view>
+                    <view class="th">总租/元</view>
+                </view>
+                <view class="tr bg-gg" wx:for="{{addRent}}" wx:key="code">
+                    <view class="td">{{item.hause}}</view>
+                    <view class="td">{{item.manage}}</view>
+                    <view class="td">{{item.totalrent}}</view>
+                </view>
+            </view>
+            <!-- 总额 -->
+            <view class="sum">当月总计: {{addSum}} 元</view>
+        </view>
+        <button type="primary" style="width:50%" bindtap="addBill">添 加</button>
     </scroll-view>
   </swiper-item>
 

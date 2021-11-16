@@ -72,7 +72,7 @@ page{
 .txt textarea{
   /* border: 1rpx solid red; */
   width: 100%;
-  height: 36rpx;
+  /* height: 36rpx; */
   margin-left: 20rpx;
 }
 .txt .num{

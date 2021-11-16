@@ -33,7 +33,7 @@
   <view class="imageBox">
     <image src="/img/id.png" style="width:60rpx;height:60rpx"></image>
   </view>
-  <input class="input" type="text" value="身份证号：{{id}}" disabled></input>
+  <input class="input" type="text" value="身份证：{{id}}" disabled></input>
 </view>
 <view class="section">
   <view class="imageBox">
@@ -70,12 +70,11 @@
   <view class="upLoad">
     <view class="uplaodImgItem" wx:for="{{pic}}" wx:key="index" wx:for-item="picItem">
       <image src="{{picItem}}" bindtap="previewIMG" data-src="{{picItem}}"></image>
-      <view class="deleteImg" bindtap="bindDeleteImg" data-index="{{index}}">
-        <text class="iconfont icon-chahao">×</text>
-      </view>
+     
     </view>
   </view>
 
 </view>
+
 <view style="margin:30rpx 0 50rpx 180rpx;width:50%;"><button type="primary" bindtap="confirmRegist" wx:if="{{st=='waiting'}}">确认入住</button></view>
 

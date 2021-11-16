@@ -1,0 +1,4 @@
+/* pages/news/news.wxss */
+.sp{
+    margin-top:20rpx
+}

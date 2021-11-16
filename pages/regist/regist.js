@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    allRoom:[304,401,502,405,204],
+    allRoom:[401,502,405,204],
     sex:["男","女"],
     roomIndex:-1,
     sexIndex:-1,
@@ -165,14 +165,16 @@ Page({
         app.globalData.room=dt.allRoom[dt.roomIndex]
         wx.showToast({
           title: '提交成功',
-          icon:"success"
+          success: function() {
+              setTimeout(function() {
+                //要延时执行的代码
+                wx.navigateBack({})
+                wx.hideLoading({
+                  success: (res) => {},
+                })
+              }, 1800) //延迟时间
+          }
         })
-        wx.hideLoading({
-          success: (res) => {
-            setTimeout(function(){wx.navigateBack({})},1800)
-          },
-        })
-        
         // this.setData({
         //   roomIndex:-1,
         //   sexIndex:-1,

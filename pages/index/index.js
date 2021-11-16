@@ -195,12 +195,18 @@ Page({
   
   // 云函数位置不够 只能用普通函数添加，update的时候注意权限，到时修改需要去云数据库里修改_openid
   releaseMsg(){
+    var msg=this.data.text
+    console.log(msg)
+    console.log(this.data.text)
     db.collection("Message").doc('28ee4e3e608c0de413f2d49a4216b27a').update({
       data: {
-        msg: this.data.text
+        msg: msg
       },
       success:res=>{
         console.log("1")
+        wx.showToast({
+          title: '发布成功',
+        })
       },
       fail:res=>{
         console.log(res)
@@ -212,6 +218,11 @@ Page({
       text:[], //消息内容
       n:[false,false,false,false,false], //点击文本框再显示前面序号
       emp:[true,true,true,true] // 第一条不写下面的框用不了
+    })
+  },
+  getNews(){
+    wx.navigateTo({
+      url: '/pages/news/news',
     })
   }
 })

@@ -8,7 +8,7 @@ Page({
     data: {
         currentTab:0,
         card1:[], 
-        allRoom:[304,401,502,405,204], 
+        allRoom:[304,401,405,204,504], 
         livingIs:[],
         waitingIs:[],
         diff:[]
@@ -29,10 +29,8 @@ Page({
           }) 
         } 
       } ,
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
+    
+    onShow: function (options) {
         db.collection("User").where({status:"waiting"}).get().then(res=>{
             this.setData({card1:res.data})
         })

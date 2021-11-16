@@ -65,7 +65,7 @@
     </view>
     <view class="divLine"></view>     <!-- 分割线 -->
   </view>
-  <view class="picture">
+  <!-- <view class="picture">
     <view class="uptitle">
       <view class="title">合同</view>
     </view>
@@ -78,6 +78,6 @@
       </view>
      
     </view>
-  </view>
+  </view> -->
 </view>
 <view class="welcome" style="text-decoration:underline;text-align:right;padding-top:40rpx;color:#1375ff;margin-right:20rpx" bindtap="contact">如需退房请提前联系房东或保安</view>

@@ -5,7 +5,7 @@
 <view style="display:flex;justify-content:space-between;background-color: white;align-items: center;">
   <view class="headBox">
     <image class="logo" src="/img/brandLogo.png" mode="widthFix"></image>
-    <text style="font-size: large;">朋 来 公 寓</text>
+    <text style="font-size: large;">凤 城 公 寓</text>
   </view>
   <view wx:if="{{isAdmin}}" style="color:#696969;margin-right:20rpx">管理员</view>
 </view>
@@ -57,30 +57,30 @@
     <image class="logo" src="/img/info.png" mode="widthFix"></image>
     <text style="font-size: large;">消 息</text>
   </view>
-  <view style="align-items: center;margin-top: 35rpx;margin-right:20rpx;color:#1E90FF;font-style:italic;text-decoration:underline">用户须知</view>
+  <view style="align-items: center;margin-top: 35rpx;margin-right:20rpx;color:#1E90FF;font-style:italic;text-decoration:underline" bindtap="getNews">用户须知</view>
 </view>
 
 <view class="line"></view>
 <view class="contentBox">
   <view class="txt">
     <view class="num"><text wx:if="{{n[0]}}">1.</text></view>
-    <textarea maxlength="60" value="{{text[0]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" bindinput="areaInput" data-num="0"></textarea>
+    <textarea maxlength="60" value="{{text[0]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" bindinput="areaInput" data-num="0" disabled="{{isAdmin}}"></textarea>
   </view>
   <view class="txt">
     <view class="num"><text wx:if="{{n[1]}}">2.</text></view>
-    <textarea maxlength="60" value="{{text[1]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur"  bindinput="areaInput" disabled="{{emp[0]}}" data-num="1"></textarea>
+    <textarea maxlength="60" value="{{text[1]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur"  bindinput="areaInput" disabled="{{emp[0] && isAdmin}}" data-num="1" ></textarea>
   </view>
   <view class="txt">
     <view class="num"><text wx:if="{{n[2]}}">3.</text></view>
-    <textarea maxlength="60" value="{{text[2]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[1]}}" bindinput="areaInput" data-num="2"></textarea>
+    <textarea maxlength="60" value="{{text[2]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[1] && isAdmin}}" bindinput="areaInput" data-num="2" ></textarea>
   </view>
   <view class="txt">
     <view class="num"><text wx:if="{{n[3]}}">4.</text></view>
-    <textarea maxlength="60" value="{{text[3]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[2]}}" bindinput="areaInput" data-num="3"></textarea>
+    <textarea maxlength="60" value="{{text[3]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[2] && isAdmin}}" bindinput="areaInput" data-num="3" ></textarea>
   </view>
   <view class="txt">
     <view class="num"><text wx:if="{{n[4]}}">5.</text></view>
-    <textarea maxlength="60" value="{{text[4]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[3]}}" bindinput="areaInput" data-num="4"></textarea>
+    <textarea maxlength="60" value="{{text[4]}}" auto-height bindfocus="areaFocus" bindblur="areaBlur" disabled="{{emp[3] && isAdmin}}" bindinput="areaInput" data-num="4" ></textarea>
   </view>
 </view>
 <view>

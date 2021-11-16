@@ -8,7 +8,7 @@ Page({
    */
   data: {
     currentTab:0,
-    item: ['美国', '中国', '巴西', '日本'],
+    item: ['桌子', '椅子', '电视', '灯管'],
     index:-1,
     pic:[],//最多三张
     picCount:0,
@@ -129,11 +129,16 @@ Page({
                 this.onShow()
                 wx.showToast({
                   title: '提交成功',
-                  icon:"success"
+                  success: function() {
+                      setTimeout(function() {
+                        //要延时执行的代码
+                        wx.hideLoading({
+                          success: (res) => {},
+                        })
+                      }, 1800) //延迟时间
+                  }
                 })
-                wx.hideLoading({
-                  success: (res) => {},
-                })
+                
               }
             })
           }

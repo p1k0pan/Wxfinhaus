@@ -18,7 +18,7 @@ Page({
         deposit:null ,//以后根据数额多少提交直接付款
         water:null,
         elect:null,
-        st:""
+        st:"",
     },
 
     /**
@@ -50,6 +50,9 @@ Page({
     },
     confirmRegist(){
         //必须用云函数
+        wx.showLoading({
+          title: '数据传送中...',
+        })
         wx.cloud.callFunction({
             name:"confirmRegist",
             data:{
@@ -57,17 +60,28 @@ Page({
                 status:"living"
             },
             success:res=>{
-                wx.showToast({
+                db.collection("Bill").add({
+                    data:{
+                        room:parseInt(this.data.room),
+                        hause:parseInt(this.data.deposit)-300,
+                        manage:300,
+                        totalrent:parseInt(this.data.deposit),
+                        elect:[],
+                        water:[]
+                    }
+                }).then(res=>{wx.showToast({
                     title: '入住成功',
                     success: function() {
                         setTimeout(function() {
                           //要延时执行的代码
+                          wx.hideLoading({})
                           wx.navigateBack({
                             delta: 1
                           })
                         }, 1000) //延迟时间
                     }
                   })
+                })
             },
             fail:res=>{
                 wx.showToast({
@@ -76,6 +90,12 @@ Page({
             }
         })
         
-    }
+    },
+    previewIMG:function(event){
+        wx.previewImage({
+          current: event.currentTarget.dataset.src, // 当前显示图片的http链接
+          urls: this.data.pic // 需要预览的图片http链接列表
+        })
+    },
    
 })

@@ -14,7 +14,8 @@ Page({
         time:"",
         status:"", //判断状态的文字
         isAdmin:"",
-        picstatus:false //判断显示哪个图标
+        picstatus:false, //判断显示哪个图标
+        selectIdx:""
       },
 
     /**
@@ -31,10 +32,11 @@ Page({
             room:app.globalData.card[options.idx].room,
             status:app.globalData.card[options.idx].status,
             isAdmin:app.globalData.isAdmin,
-            
+            selectIdx:options.idx
         })
         if("待维修"==this.data.status){this.setData({picstatus:true})}
         console.log(app.globalData.card)
+        console.log(options.idx)
         console.log("待维修"==this.data.status)
     },
     previewIMG:function(event){
@@ -49,25 +51,42 @@ Page({
             content: '确定提交？',
             success:res=>{
                 if(res.confirm){
+                    wx.showLoading({
+                      title: '数据提交中...',
+                    })
                     wx.cloud.callFunction({
                         name:"finishFix",
                         data:{
-                            _id:app.globalData.card[0]._id
+                            _id:app.globalData.card[this.data.selectIdx]._id
                         },
                         success:res=>{
                             wx.showToast({
                               title: '修改成功',
                               icon: "success",
+                              success: function() {
+                                    setTimeout(function() {
+                                    //要延时执行的代码
+                                    wx.hideLoading({})
+                                    wx.navigateBack({
+                                        delta: 1
+                                    })
+                                    }, 1000) //延迟时间
+                                }
                             })
-                            wx.navigateBack({
-                                delta: 0,
-                              })
+
                         },
                         fail:res=>{
                             wx.showToast({
                                 title: '出错',
                                 icon: "error",
-                              })
+                                success:function() {
+                                    setTimeout(function() {
+                                    //要延时执行的代码
+                                    wx.hideLoading({})
+                                   
+                                    }, 1000) //延迟时间
+                                }
+                            })
                         }                    
                     })
     
